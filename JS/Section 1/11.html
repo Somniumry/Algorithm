@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let cnt = 0;
+
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] === s[i].toUpperCase()) {
+                    cnt++
+                }
+            }
+
+            // 보류
+            // for(let i=0; i<s.length; i++){
+            //     let arr = s.charCodeAt();
+            //     if(arr>=65&&arr<=90){
+            //         cnt++;
+            //     }
+            // }
+            return cnt;
+        }
+
+        let str = "KoreaTimeGood";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
+
+<!-- 
+65~90 대문자
+97~122 소문자 
+-->

@@ -1,0 +1,45 @@
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let newstr = s.replace(/A/gi, "#")
+                return newstr
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let res = ""; // res 초기화 안해주면 undefined까지 합쳐서 나옴
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] === 'A') {
+                    res += "#"
+                } else {
+                    res += s[i]
+                }
+            }
+            return res
+        }
+
+        let str = "BANANA";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let res = [...new Set(s)] // 중복 제거
+            let res2 = res.toString(); // string 문자열
+            let sol = res2.replace(/\,/g,"") // 새로운 문자열로 반환
+            // let sol = res2.length
+            
+            return sol;
+        }
+        console.log(solution("ksekkset"));
+    </script>
+</body>
+
+</html>

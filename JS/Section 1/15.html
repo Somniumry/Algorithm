@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let res = "";
+
+            if(s.length%2 === 0){
+                res = s.substr(s.length/2-1, 2)
+            } else {
+                res = s.substr(s.length/2, 1)
+            }
+
+            return res;
+            
+        }
+        console.log(solution("studye"));
+    </script>
+</body>
+
+</html>
