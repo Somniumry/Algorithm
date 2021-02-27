@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                let res = ""
+                let arr = ""
+
+                for(let i=0; i<str.length; i++){
+                    if(str[i]>=0 && str[i]<=9){
+                        res += str[i]
+                    }
+                }
+                // arr = Number(res)
+                // console.log(arr);
+                // console.log(typeof(arr));
+                // for(let i=0; i<res.length; i++){
+                //     console.log(res[i])
+                //     arr += res[i]
+                // }
+                // console.log(typeof(String(0)))
+                // console.log(res[0])
+                // console.log(typeof(res[0]))
+                return Number(res);
+            }
+            
+            let str="g0en2T0s8eSoft";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+<!-- 처음 0을 어떻게 제거하지?? 타입을 Number로 바꾸면 됨-->

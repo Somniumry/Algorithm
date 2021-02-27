@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 팰린드롬 : 거꾸로 읽어도 같은 문자열
+            // 문제 : 띄어쓰기를 어떻게 없애냐 : replace
+
+            // Resolve
+            // 1. 문자를 역순회하여 새로운 문자열에 대입
+            // 2. 기존 문자열과 새로운 문자열을 비교
+            // - 여기서 문제점
+            //     1. 공백에 대한 문제 발생
+            //     해결 : 모든 공백문자 제거
+            // 3. 공백문자 제거 후 특수문자에 대한 문제 발생
+            // 역순회하여 특수문자 순서가 바뀌어 테스트 불통
+            //     해결 : 모든 특수문자를 공백으로 치환
+            // 4. 결과
+            // 모든 특수문자 공백으로 치환 후 모든 공백을 제거
+            // 그 후 문자열을 비교함
+            
+            function solution(s){
+                let exp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi; // 모든 특수문자
+                let t = s.replace(exp, " ") // 특수문자를 공백으로 치환
+                let reg = t.replace(/ /gi, ""); // 모든 공백문자 제거
+                // console.log(reg)
+                let str = ""
+
+                for(let i=reg.length-1; i>=0; i--){
+                    str+=reg[i]
+                }
+                
+                console.log(reg)
+                console.log(str)
+
+                // 이거 안됨
+                // if(reg.localeCompare(str, {sensitivity : 'base'}) === 0) {
+                //     return 'YES'
+                // } else {
+                //     return 'NO'
+                // }
+
+                let regex = new RegExp(reg, "gi")
+                if(regex.test(str)){
+                    return 'YES'
+                } else {
+                    return 'NO'
+                }
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+<!-- https://webisfree.com/2014-08-29/[javascript]-%EA%B3%B5%EB%B0%B1(%EB%B9%88%EA%B3%B5%EA%B0%84)-%EB%AC%B8%EC%9E%90-%EC%A0%9C%EA%B1%B0%ED%95%98%EA%B8%B0-%EC%97%86%EC%95%A0%EA%B8%B0-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-%EC%82%AC%EC%9A%A9 -->
+
+<!-- 정규표현식 공부할 것
+대소문자 구분하는 방법 정리할 것 -->
