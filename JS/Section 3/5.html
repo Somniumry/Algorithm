@@ -1,37 +1,59 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(s){
-                let cnt = 0;
-                let arr = [];
 
-                for(let i=0; i<s.length; i++){
-                    // if(s[i] === s[i+1]){
-                    //     cnt++;
-                    //     res = s[i];
-                    // }
-                    if(s[i] === s[i+1]){
-                        console.log(s[i])
-                    } else {
-                        
-                    }
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let cnt = 1;
+            let res = "";
+
+            // console.log(s.length)
+            for (let i = 0; i < s.length; i++) {
+                // if(s[i] === s[i+1]){
+                //     cnt++;
+                //     res = s[i];
+                // }
+                // console.log(s[i])
+
+                if (s[i] === s[i + 1]) {
+                    cnt++;
+                    // console.log(s[i]) 왜 K가 하나만 나올까
+                    // 아아 다음에 없으니까 -1이 되는구나
+                    // res += s[i]+String(cnt)
+                    // res += s[i];
+                    // res += cnt;
+                } else {
+                    res += s[i]+cnt;
+                    cnt = 1;
+                    // console.log(s[i])
                 }
-                return arr;
             }
-            
-            let str="KKHSSSSSSSE";
-            console.log(solution(str));
-        </script>
-    </body>
+            return res;
+            // K1H1S7E1
+            // 왜 K2가 아니라 K1일까
+        }
+
+        let str = "KKHSSSSSSSE";
+        console.log(solution(str));
+    </script>
+</body>
+
 </html>
 
-<!-- K2 HS 7E -->
+<!-- K2 H S7 E -->
 
 <!-- 
     누적을 어떻게 시키지?
     배열에 넣어야하나?
+
+    K1KHS2S3S4S5S6S7SE 이렇게까지는 나오는데
+    여기서 압축을 어떻게 하지?
+
+    K S 1개씩은 뒤에 연달아 없는게 있음
+
+    음.......... 답이 나오긴 했는데 이거 음...........
  -->
