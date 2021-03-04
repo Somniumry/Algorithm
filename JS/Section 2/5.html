@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 등수 입력
+            function solution(arr){
+                let rank = [];
+                // console.log(arr[0])
+                for(let i=0; i<arr.length; i++){
+                    // console.log("arr[i] : ", arr[i])
+                    rank[i] = 1; // 우선 다 1로 초기화
+                    for(let j=0; j<arr.length; j++){
+                        // console.log("arr[j] : ", arr[j])
+                        if(arr[i]<arr[j]){
+                            rank[i]++;
+                        }
+                    }
+                }
+
+                return rank;
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- output : 4 3 2 1 5 -->
