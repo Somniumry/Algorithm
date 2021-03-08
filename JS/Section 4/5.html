@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // K번째 큰 수
+            function solution(n, k, card){
+                let sum = 0, res = [];
+                let arr = card.sort((a, b) => { return b - a })
+                // console.log(arr)
+
+                // 1~3번째까지 큰 수만 더한거(문제 파악 못했음)
+                // for(let i=0; i<k; i++){
+                //     // console.log(i)
+                //     console.log(arr[i], sum)
+                //     sum += arr[i]
+                // }
+                // console.log(sum)
+
+                for(let i=0; i<n; i++){
+                    for(let j=i+1; j<n; j++){
+                        for(let k=j+1; k<n; k++){
+                            sum = arr[i]+arr[j]+arr[k]
+                            // console.log(arr[i], arr[j], arr[k], sum)
+                            res.push(sum)
+                        }
+                        // console.log(arr[i], arr[j], sum)
+                    }
+                }
+                // console.log(res)
+
+                // K번째 수 구하기 Way 1
+                // 배열은 0번째부터 시작이니까 -1
+                // console.log(res[k-1]) 
+                return res[k-1]
+
+                // K번째 수 구하기 Way 2
+                // for(let i=0; i<res.length; i++){
+                //     // console.log(res[i])
+                //     return res[k-1]
+                // }
+            }
+            
+            let arr=[13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+            console.log(solution(10, 3, arr));
+        </script>
+    </body>
+</html>
+
+<!-- output : 143 -->
+<!-- 3장을 뽑아 각 카드에 적힌 수를 합한 값 -->
+<!-- 정렬 : [65, 45, 42, 34, 33, 26, 23, 15, 13, 11] -->
+
+<!-- 
+가장 큰 값들 중 3번째로 큰 값
+65+45+42 = 152
+65+45+34 = 144
+65+45+33 = 143
+-->
