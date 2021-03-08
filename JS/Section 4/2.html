@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        // 뒤집은 소수
+        // 소수 : 1과 자기자신으로만 나누어지는 1이외의 정수
+
+        function isPrime(num) { // 소수판별 함수
+            if(num === 1) {
+                return false;
+            } else if (num === 2) { // 2는 소수이다
+                return true;
+            } else if (num % 2 !== 0) { // 홀수
+                // if (num % 3 === 0) {
+                //     return false;
+                // }
+                for(let i=3; i<num; i++){
+                    if(num%i === 0){
+                        return false
+                    }
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function solution(arr) {
+            // for(let i=0; i<arr.length; i++) {
+            //     res.push(isPrime(arr[i]))
+            // }
+            // return res;
+
+            let array = [];
+            // 뒤집기
+            for (let i = 0; i < arr.length; i++) {
+                let result = [], res = [];
+                result = arr[i].toString().split("").reverse() // 여기까지 뒤집기
+                // console.log(result)
+                res = Number(result.join(''))
+                // console.log(Number(res))
+                // console.log(typeof(res))
+                if(isPrime(res)){ // 소수인것만 출력
+                    console.log(res)
+                }
+            }
+            return []
+        }
+
+        let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100]; // 자연수
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
+
+<!-- output : 23 2 73 2 3 -->
+
+<!-- 
+소수판별
+1. 1과 자기자신으로만 나누어 떨어지는 1 이외의 정수
+그러니까 1은 예외라는 것
+
+2. 소수는 홀수이다.
+단, 2를 제외하고
+
+3. 정리하면 1과 2를 제외한 모든 소수는 모두 홀수라는 것
+-->
