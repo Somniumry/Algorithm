@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 배열 for...of / 객체 for...in -->
+        <!-- 각 배열의 값들을 비교해야하니까 빈 배열 하나를 선언? -->
+        <script>
+            function solution(n, arr){
+
+                // arr.forEach(element => {
+                //     // console.log(typeof(element))
+                //     // sum += element%10; // 각 배열의 끝만 더함
+                //     // console.log(element, sum)
+                // });
+                
+                // let result = [];
+                // for(let ele of arr){
+                //     // console.log(ele)
+                //     // console.log(typeof(ele))
+                //     // console.log(typeof(result))
+                //     // console.log(result)
+                //     result = ele.toString().split("")
+                // }
+
+                let result = [], max = 0, answer;
+                for(let i=0; i<arr.length; i++){
+                    result = arr[i].toString().split("") // 각 배열의 값들을 하나씩 뜯은 결과
+                    // console.log(typeof(result))
+                    console.log(result)
+
+                    let res = 0; // 결과값
+                    for(let j=0; j<result.length; j++){
+                        // console.log(result.length)
+                        res += parseInt(result[j]) // 뜯은 결과들을 더함
+                        // console.log(res)
+                        // t=arr[i]
+                    }
+                    console.log(res)
+                    
+                    if(max<res){
+                        max = res;
+                        answer = arr[i]
+                    } else if(max === res){ // 최대값이 같으면 원래 값이 큰걸를 출력
+                        if(answer <arr[i]) answer = arr[i]
+                    }
+                }
+
+                return answer
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
+
+<!-- 
+    for...of에서는 length를 쓸 수 없다.
+    i가 값이다.
+ -->
+
+<!-- 
+배열.reduce((acc, cur, idx) => {return 결과}, 초기값)
+acc 누적
+cur 현재
+idx 인덱스 
+-->
+<!-- 
+해볼 것
+1. for each로 배열 안의 인덱스 값들 하나씩 나누기 
+2. %10으로 값 출력해보기
+3. reduce 사용해보기
+-->
+
+<!-- 
+배열에 누적 시키는거 다시 문제 풀어봐
++= 와 = 차이를 알아야할거같다 
+그리고 변수 선언을 어디서 하느냐에 대한 차이도 확인해야할 것 같다
+변수 초기화를 어디에 할지도 이중for문은 특히!!!! -->
