@@ -7,19 +7,36 @@
 
 <body>
     <script>
+        // 잘 못 풀었다...
+        // function solution(arr) {
+        //     let cnt = 0;
+        //     let max = arr[0];
+
+        //     // console.log(max)
+        //     for(let i=0; i<arr.length; i++){
+        //         if(max <= arr[i+1]){
+        //             max=arr[i+1];
+        //             console.log(max)
+        //             cnt++;
+        //         }
+        //     }
+
+        //     return cnt;
+        // }
+
         function solution(arr) {
-            let cnt = 0;
+            let cnt = 1; // 1번째 사람은 무조건 출력하니까
             let max = arr[0];
 
-            // console.log(max)
-            for(let i=0; i<arr.length; i++){
-                if(max <= arr[i+1]){
-                    max=arr[i+1];
+            for(let i=1; i<arr.length; i++) {
+                // console.log(arr[i])
+                // arr[1]번지부터 출력
+                if(max < arr[i]){
+                    cnt++
+                    max = arr[i]
                     console.log(max)
-                    cnt++;
                 }
             }
-
             return cnt;
         }
 
