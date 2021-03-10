@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                // let answer=Number.MIN_SAFE_INTEGER;
+                // let sum = 0;
+                // 행의 전체 합계
+                // for(let i=0; i<arr.length; i++){
+                //     for(let j=0; j<arr.length; j++){
+                //         sum += arr[i][j]
+                //     }
+                //     console.log(i+'의 합계 : '+ sum)
+                // }
+                
+                // 각 행의 합계
+                for(let i=0; i<arr.length; i++){
+                    let rowSum = 0; // j가 끝나고 새로운 i로 돌 때 sum을 초기화해준다. 안하면 계속 누적됨
+                    for(let j=0; j<arr.length; j++){
+                        // 배열값들이 더해지며 각 행의 합이 나옴 ex) 10 23 33 45 60 60
+                        // arr[i][j+1] += arr[i][j]
+                        // arr[i][5] = arr[i][j]
+
+                        // 기존 배열 유지하며 각 행의 합이 나옴 ex) 10 13 10 12 15 60
+                        rowSum += arr[i][j]; // [0,0] [0,1] [0,2] [0,3]
+                        console.log(rowSum)
+                        arr[i][5] = rowSum;
+                    }
+                    console.log("\n")
+                }
+                
+                // 각 열의 합계
+                // for(let i=0; i<arr.length; i++){
+                //     // let colSum = 0;
+                //     let sum = 0;
+                //     for(let j=0; j<arr.length; j++){
+                //         sum += arr[j][i];
+                //         // console.log(colSum)
+                //         // arr[5][j] = colSum
+                //     }
+                //     console.log("\n")
+                // }
+
+                // for(let i=0; i<arr.length; i++){
+                //     for(let j=0; j<arr.length; j++){
+                //         console.log(arr[i][j])
+                //     }
+                // }
+
+                return arr;
+                // return sum;
+            }
+
+            let arr=[[10, 13, 10, 12, 15], 
+                     [12, 39, 30, 23, 11],
+                     [11, 25, 50, 53, 15],
+                     [19, 27, 29, 37, 27],
+                     [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- output : 155 -->
+
+<!-- 
+    1. 가로의 합들 전부 나오게 하기
+    2. 세로의 합들 전부 나오게 하기
+    3. 대각선 합들 전부 나오게 하기
+    4. 값들을 비교하여 최대값 출력
+ -->
+
+ <!-- 
+    [10, 13, 10, 12, 15], =  60
+    [12, 39, 30, 23, 11], = 115
+    [11, 25, 50, 53, 15], = 154
+    [19, 27, 29, 37, 27], = 139
+    [19, 13, 30, 13, 19]  =  94
+     71 117 149 138  87   = 
+    134                155
+  -->
