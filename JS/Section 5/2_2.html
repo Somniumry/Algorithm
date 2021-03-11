@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 공통원소 구하기
+            function solution(arr1, arr2){
+                let answer=[];
+                let x = arr1.sort();
+                let y = arr2.sort();
+
+                let s1 = s2 = 0;
+
+                while(s1 < x.length && s2 < y.length) {
+                    if(arr1[s1] === arr2[s2]){
+                        answer.push(arr1[s1++])
+                        // console.log('=', arr1[s1])
+                    } else if(arr1[s1] < arr2[s2]){
+                        arr1[s1++];
+                        // console.log('1<2', arr1[s1++])
+                    } else {
+                        arr2[s2++]
+                        // console.log('1>2', arr2[s2++])
+                    }
+                }
+
+                return answer;
+            }
+            
+            let a=[1, 3, 9, 5, 2];
+            let b=[3, 2, 5, 7, 8];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+
+<!-- 
+    투포인터 알고리즘 -> 2개의 배열을 어떻게 비교해야하는가
+
+    1. 우선 각 배열을 정렬하고 s1[i] === s2[i] 출력하려고 했는데
+    정렬되어 있는 배열의 인덱스의 값들이 달라서 출력이 안됨
+    a = [1, 2, 3, 5, 9]
+    b = [2, 3, 5, 7, 8]
+
+    How To?
+    arr1의 원소하고 arr2의 원소가 같으면 배열에 넣고
+ -->
