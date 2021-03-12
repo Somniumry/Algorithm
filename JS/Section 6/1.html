@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 올바른 괄호(스택) -->
+        <script>
+            function solution(s){
+                let stack = [];
+                let cnt = 1;
+                let answer;
+
+                for(let i=0; i<s.length; i++){
+                    // console.log(s[i])
+                    if(s[i] === '('){
+                        stack.push(cnt++)
+                    } else {
+                        stack.pop(cnt--)
+                    }
+
+                    if(stack.length === 0){
+                        answer = 'YES'
+                    } else {
+                        answer = 'NO'
+                    }
+                }
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
+
+<!-- 
+    ( => push
+    ) => pop
+
+    ( ( ) ( ( ) ) ) ( ( )
+    1 2 1 2 3 2 1 0 1 2 1 => NO
+ -->
