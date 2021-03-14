@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 후위식 연산 -->
+        <script>
+            function solution(s){  
+                let stack = [];
+
+                for(let i=0; i<s.length; i++){
+                    if(isNaN(s[i])){ // s[i] === 연산자
+                        let s1 = Number(stack.pop());
+                        let s2 = Number(stack.pop());
+                        // console.log('pop', i, stack)
+                        // console.log('pop', s1, s2)
+
+                        if(s[i] === '+'){
+                            stack.push(s1+s2)
+                            console.log('+', s1, s2, stack)
+                        } else if(s[i] === '-'){
+                            stack.push(s1-s2)
+                            console.log('-', s1, s2, stack)
+                        } else if(s[i] === '*'){
+                            stack.push(s1*s2)
+                            console.log('*', s1, s2, stack)
+                        } else if(s[i] === '/'){
+                            stack.push(s1/s2)
+                            console.log('/', s1, s2, stack)
+                        }
+                    } else {
+                        stack.push(s[i]);
+                        console.log('push', i, stack)
+                    }
+                }
+
+                let answer = Number(stack);
+                // return Math.abs(answer);
+                return Math.abs(Number(stack))
+            }
+
+            let str="352+*9-";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+<!-- How To
+    연산자 기호 나오기 전까지 push(숫자)
+    연산자 기호 나오면 pop
+
+    현재 값과 그 전 값을 pop해야하는데
+    전 값을 어떻게 얻지?
+
+    s[i] === 연산자 기호 => pop
+    s[i] === '+' || s[i] === '*' || s[i] === '-' || s[i] === '/' pop()
+
+    s[i] !== 연산자 기호 => 숫자 => push
+    
+    if(isNaN(s[i])) 
+    참 : 숫자가 아님
+    거짓 : 숫자
+
+
+    if(isNaN(s[i])) {
+        pop;
+    } else {
+        push;
+    }
+
+-->
