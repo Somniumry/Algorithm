@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 괄호 문자 제거(스택) -->
+        <script>
+            function solution(s) {
+                let stack = [];
+                let cnt = 0;
+
+                for(let i=0; i<s.length; i++){
+                    if(s[i] === ')') {
+                        console.log('pop 전', i, stack)
+                        while(stack.pop() !== '('){
+                            console.log('pop', i, stack)
+                        }
+                    } else {
+                        stack.push(s[i]);
+                        // cnt++;
+                        // console.log('push', stack, stack.length, s[i])
+                        console.log('push', i, stack)
+                    }
+                }
+                console.log("stack")
+
+                return stack;
+            }
+
+            let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+<!-- 
+    소괄호 사이에 존재하는 문자 제거
+    ( A ( BC ) D ) EF ( G ( H ) ( I J ) K ) LM ( N )
+    EF LM
+
+    '(' 나오면 ')'나올 때까지 누적하고 없애
+
+
+    while문으로 어떻게 해야할까
+ -->
