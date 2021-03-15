@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 공주 구하기 -->
+        <script>
+            function solution(n, k){
+                let arr = [];
+
+                for(let i=0; i<n; i++){
+                    arr.push(i+1)
+                }
+
+                while(arr.length > 1) {
+                    console.log('init', arr);
+                    for(let i=1; i<k; i++){
+                        arr.push(arr.shift());
+                        console.log(i+'회', arr);
+                    }
+                        arr.shift();
+
+                    console.log('length', arr.length, arr);
+                }
+                return arr;
+            }
+
+            console.log(solution(8, 3));
+        </script>
+    </body>
+</html>
+<!-- 
+    1. 8번 돈다.
+    2. 3일 때마다 pop한다.
+
+    
+    stack 후입선출 push, pop(마지막 제거)
+    queue 선입선출 push, shift(처음 제거)
+ -->
