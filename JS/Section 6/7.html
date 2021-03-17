@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 교육과정 설계
+            function solution(need, plan){
+                let answer='YES';
+
+                let a = need.split("");
+                let b = plan.split("");
+                // console.log(Array.isArray(b)) b는 배열
+
+
+                // for(let i=0; i<b.length; i++){
+                //     // if(a.includes(b[i])){
+                //     if(b.includes(a)){
+                //         console.log('if', i+'회', 'a -> ', a[i], 'b -> ', b[i])
+                //         answer = 'YES'
+                //     } else {
+                //         console.log('el', i+'회', 'a -> ', a[i], 'b -> ', b[i])
+                //         answer = 'NO'
+                //     }
+                // }
+                
+                // b 길이만큼 돈다
+                // b안에 a가 있는지 체크한다
+                // a를 shift하면서 a의 길이가 1이상일때까지 b안에 a가 있는지 체크한다.
+                // === a가 더이상 없을 때까지 돈다
+
+                // a배열안에 b가 있는지 체크를 하고 처음 C가 있으니까 C는 체크가 됨
+                // 그리고 다시 b의 처음부터 돌고 이때 a의 첫번째 C는 빼버렸기 때문에 false가 나와서 if문이 안돔
+                // for(let i=0; i<b.length; i++){
+                //     while(a.length >= 1){
+                //         if(a.includes(b[i])){
+                //             console.log(">", a, b[i])
+                //         }
+                //         a.shift();
+                //         b.shift();
+                //         console.log(i+'회', a, b)
+                //     }
+                // }
+
+                // while(b.length >= 1){
+                //     if(b.includes(a)){
+                //         console.log('>', a, b)
+                //     }
+                //     console.log(b);
+                //     b.shift() // 여기서 b를 빼면 3번만 도니까 b를 shift하면 안됨
+                // }
+
+
+                for(let i=0; i<b.length; i++){ // b길이만큼 돌고
+                    if(a.includes(b[i])){ // a안에 b가 있는지 체크
+                        // console.log('true', b[i]) // 참인것만 출력
+                        if(b[i] === a.shift()){ // b의 순서가 a의 shift 순서와 같다면
+                            answer = 'YES'
+                        } else {
+                            answer = 'NO'
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            let a="CBA";
+            let b="CBDAGE";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+<!-- 
+    b 순서대로 돌면서 a있는지 체크
+    a 길이가 1 이상일때까지
+
+ -->
