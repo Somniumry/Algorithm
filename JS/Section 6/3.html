@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(board, moves){
+                let stack = [];
+                let answer = 0;
+                // stack.push(1)
+                // console.log(stack[stack])
+                moves.forEach(element => {
+                    for(let i=0; i<board.length; i++){
+                        if(board[i][element-1] !== 0){ // 인형을 만났다
+                            // stack.push(board[i][element-1])
+                            // console.log(element, stack) // 아아 이거 i횟수만큼 push하는구나
+                            // 그럼 push하지 말고있어야겠다
+                            if(stack[stack.length-1] === board[i][element-1]){ // stack에 있는거랑 같다면?
+                                stack.pop(); // stack에 있는거 하나 빼고
+                                answer += 2; // 터진 인형 2개 추가
+                                board[i][element-1] = 0; // board에서 인형 하나 뺏으니까 0으로
+                                break;
+                            } else {
+                                stack.push(board[i][element-1]);
+                                board[i][element-1] = 0;
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                return answer;
+            }
+            
+            let a=[[0,0,0,0,0],
+                   [0,0,1,0,3],
+                   [0,2,5,0,1],
+                   [4,2,4,4,2],
+                   [3,5,1,3,1]];
+
+            let b=[1, 5, 3, 5, 1, 2, 1, 4]; // 열 8개
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+
+<!-- How To
+    b 위치에 있는 board를 push
+    만약 이전push값과 현 push 값이 같으면 이전 push값과 현 push값을 pop(총 2번 pop)하고 카운트
+    b 위치는 j열
+
+    a의 위치값은 확인이 가능하나 b의 위치값은 어떻게 나타낼것인가?
+
+-->
