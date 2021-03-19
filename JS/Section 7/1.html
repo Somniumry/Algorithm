@@ -9,6 +9,7 @@
             function solution(arr){
                 let min, tmp, idx;
 
+                console.log('초기', arr);
                 for(let i=0; i<arr.length; i++){
                     min = Number.MAX_SAFE_INTEGER;
                     for(let j=i; j<arr.length; j++){
@@ -20,16 +21,30 @@
                     tmp = arr[i]; // 현재 i인덱스 값을 넣고
                     arr[i] = arr[idx]; // 최소값의 인덱스의 값을 넣고
                     arr[idx] = tmp;
+
+                    console.log(i+'회', arr)
                 }
                 return arr;
             }
 
-            let arr=[13, 5, 11, 7, 23, 15];
+            // let arr=[13, 5, 11, 7, 23, 15];
+            let arr=[5, 3, 7, 9, 1];
             console.log(solution(arr));
         </script>
     </body>
 </html>
 
+<!-- output
+
+    초기 (6) [13, 5, 11, 7, 23, 15]
+    0회 (6) [5, 13, 11, 7, 23, 15]
+    1회 (6) [5, 7, 11, 13, 23, 15]
+    2회 (6) [5, 7, 11, 13, 23, 15]
+    3회 (6) [5, 7, 11, 13, 23, 15]
+    4회 (6) [5, 7, 11, 13, 15, 23]
+    5회 (6) [5, 7, 11, 13, 15, 23]
+
+-->
 <!-- 선택정렬
 최소값을 찾아 위치를 바꾸며 정렬
 정렬이 되면 배열 갯수 줄이기
