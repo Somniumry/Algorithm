@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 구글 인터뷰 -->
+        <script>
+            function solution(arr){
+                let answer;
+                let y = [], n = [];
+
+                for(let i=0; i<arr.length; i++){
+                    if(arr[i]>0){
+                        y.push(arr[i])
+                    } else {
+                        n.push(arr[i])
+                    }
+                }
+
+                // console.log(y) [1, 2, 3, 5, 6]
+                // console.log(n) [-3, -2, -6]
+                let res = n.concat(y);
+                return res;
+            }
+
+            let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
