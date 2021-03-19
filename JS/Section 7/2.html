@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 버블 정렬 -->
+        <script>
+            function solution(arr){
+                let tmp;
+
+                console.log(arr);
+                for(let i=0; i<arr.length; i++){
+                    for(let j=i; j<arr.length; j++){
+                        if(arr[j] > arr[j+1]){
+                            tmp = arr[j];
+                            arr[j] = arr[j+1];
+                            arr[j+1] = tmp;
+                        }
+                        console.log(i, j, arr[i], arr[j])
+                    }
+                    console.log(arr)
+                }
+            }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
