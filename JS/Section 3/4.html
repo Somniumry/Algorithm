@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let res = [] 
+                // let res = ''
+                let street = 0; // 거리누적
+                
+                // 앞에서부터 카운트
+                for(let i=0; i<s.length; i++){
+                    if(s[i] === t){
+                        street = 0;
+                        res.push(street);
+                        // res += street;
+                    } else {
+                        street += 1;
+                        res.push(street)
+                        // res += street;
+                    }
+                }
+
+                // 뒤에서부터 카운트
+                let str = ''
+                for(let j=s.length-1; j>=0; j--){
+                    // str += s[j]
+                    // console.log(str)
+                    if(s[j] === t) {
+                        street = 0;
+                        // res += street;
+                        // res.push(street)
+                        console.log(j, res[j], street)
+                    } else {
+                        street += 1;
+                        // res += street;
+                        // res.push(street)
+                        console.log(j, res[j], street)
+                        // 현재 누적되어있는 배열(앞에서부터 돈) arr[j]와
+                        // 뒤에서부터 돈 거리(street)를 비교하여 
+                        // 최솟값을 배열에 넣는다.
+                        res[j] = Math.min(res[j], street)
+                    }
+                }
+
+
+                return res;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
+
+<!-- ▣ 출력예제 
+1 0 1 2 1 0 1 2 2 1 0
+-->
+
+<!-- 
+    거리를 어떻게 구하지?? 
+    s 문자열 전체를 돌리고 
+    해당 s[i] 인덱스를 구해서 t의 인덱스를 빼면 되려나?
+-->
