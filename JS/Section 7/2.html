@@ -4,27 +4,58 @@
         <title>출력결과</title>
     </head>
     <body>
-        <!-- 버블 정렬 -->
+        <!-- 버블 정렬 : 큰 수부터 정렬됨(배열의 마지막부터 정렬됨)-->
         <script>
+            // 잘못 푼 방법
+            // function solution(arr){
+            //     let tmp;
+
+            //     console.log('초기', arr);
+            //     for(let i=0; i<arr.length; i++){
+            //         for(let j=i; j<arr.length; j++){
+            //             if(arr[j] > arr[j+1]){
+            //                 tmp = arr[j];
+            //                 arr[j] = arr[j+1];
+            //                 arr[j+1] = tmp;
+            //             }
+            //             console.log(i, j, arr[i], arr[j])
+            //         }
+            //         console.log(i+'회', arr)
+            //     }
+
+            //     return arr;
+            // }
+
             function solution(arr){
                 let tmp;
 
-                console.log(arr);
+                console.log('초기', arr);
                 for(let i=0; i<arr.length; i++){
-                    for(let j=i; j<arr.length; j++){
+                    for(let j=0; j<arr.length-i; j++){
                         if(arr[j] > arr[j+1]){
-                            tmp = arr[j];
-                            arr[j] = arr[j+1];
-                            arr[j+1] = tmp;
+                            tmp = arr[j+1];
+                            arr[j+1] = arr[j];
+                            arr[j] = tmp;
                         }
-                        console.log(i, j, arr[i], arr[j])
                     }
-                    console.log(arr)
+                    console.log(i+'회', arr)
                 }
+                return arr;
             }
 
-            let arr=[13, 5, 11, 7, 23, 15];
+            // let arr=[13, 5, 11, 7, 23, 15];
+            let arr=[5, 3, 7, 9, 1];
             console.log(solution(arr));
         </script>
     </body>
 </html>
+
+<!-- output
+    버블정렬은 가까이 있는 두 수를 비교하여 끝에서부터 정렬함
+    초기 (5) [5, 3, 7, 9, 1]
+    0회 (5) [3, 5, 7, 1, 9]
+    1회 (5) [3, 5, 1, 7, 9]
+    2회 (5) [3, 1, 5, 7, 9]
+    3회 (5) [1, 3, 5, 7, 9]
+    4회 (5) [1, 3, 5, 7, 9]
+-->
