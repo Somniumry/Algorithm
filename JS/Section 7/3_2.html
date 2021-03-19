@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 구글 미팅
+            // 2중 for문으로 해결해보자.
+            function solution(arr){
+                let stack = [];
+                let queue = [];
+
+                for (let i = 0; i < arr.length; i++) {
+                    for(let j=i; j<arr.length; j++){
+                        if(arr[j] > 0){
+                            stack.push(arr[j]);
+                            break;
+                        } else {
+                            queue.push(arr[j]);
+                            break;
+                        }
+                    }
+                }
+                // console.log(stack);
+                // console.log(queue);
+                let answer = queue.concat(stack);
+
+                return answer;
+            }
+
+            let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
