@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <!-- 선택 정렬 -->
+        <script>
+            function solution(arr){
+                let min, tmp, idx;
+
+                for(let i=0; i<arr.length; i++){
+                    min = Number.MAX_SAFE_INTEGER;
+                    for(let j=i; j<arr.length; j++){
+                        if(min > arr[j]){
+                            min = arr[j]; //min에 최소값을 넣고
+                            idx = j; // 현재 최소값의 인덱스를 넣고
+                        }
+                    }
+                    tmp = arr[i]; // 현재 i인덱스 값을 넣고
+                    arr[i] = arr[idx]; // 최소값의 인덱스의 값을 넣고
+                    arr[idx] = tmp;
+                }
+                return arr;
+            }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- 선택정렬
+최소값을 찾아 위치를 바꾸며 정렬
+정렬이 되면 배열 갯수 줄이기
+정렬될 때까지 반복
+-->
