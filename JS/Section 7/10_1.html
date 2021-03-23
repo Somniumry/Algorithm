@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 이분검색(이진 탐색)
+            function solution(target, arr){
+                // 데이터 정렬
+                arr.sort((a,b) => a-b);
+                console.log(arr);
+
+                let start = 0, end = arr.length-1;
+                let answer;
+                // console.log(start, end, Math.floor((start+end)/2))
+                // let mid = Math.floor((start+end)/2);
+                // console.log(arr[mid])
+
+                while(true){
+                    let mid = Math.floor((start+end)/2);
+                    if(arr[mid] > target){
+                        end = mid-1;
+                    } else if(arr[mid] < target){
+                        start = mid+1;
+                    } else {
+                        answer = mid+1;
+                        break;
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[23, 87, 65, 12, 57, 32, 99, 81];
+            console.log(solution(32, arr));
+        </script>
+    </body>
+</html>
+
+<!-- 이분검색 : 검색할 범위를 반으로 줄여가며 찾아가는 탐색 알고리즘
+검색할 자료를 반씩 나누어 나머지 반만 검색하는 방식을 반복하여 자료를 찾는 검색방법
+
+빠른 속도로 원하는 자료를 찾을 수 있다.
+이분검색은 정렬된 상태에서 자료를 찾을 수 있다.
+
+=> 이분검색 방법
+1. 데이터 정렬
+2. 시작, 종료, 중간값을 찾는다.
+3. 중간값과 찾을 값(target)을 비교하여 타겟이 중간값보다
+    같으면 ? 종료
+    작다면 ? 왼쪽으로 검사
+    크다면 ? 오른쪽으로 검사
+4. 검색이 종료되지 않았다면 다시 중간값을 찾으며 데이터 비교하여 값을 찾는다
+-->
