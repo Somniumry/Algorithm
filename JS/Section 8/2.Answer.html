@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer = '';
+                function DFS(s) {
+                    if (s === 0) {
+                        console.log("------", s)
+                        return;
+                    } else {
+                        console.log('n', s)
+                        answer += String(s%2);
+                        console.log('...', answer)
+                        DFS(parseInt(s/2));
+                        // console.log("-----", s)
+                    }
+                }
+                DFS(n);
+               return answer;
+            }
+
+            console.log(solution(11));
+        </script>
+    </body>
+</html>
+
+<!-- output
+n 11 몫
+... 1 나머지
+n 5 몫
+... 11 나머지 answer += String(s%2)
+n 2 몫
+... 110 나머지 answer += String(s%2)
+n 1 몫
+... 1101 나머지 answer += String(s%2)
+------ 0
+1101
+-->
