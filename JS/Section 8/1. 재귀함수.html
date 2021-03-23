@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 재귀함수
+            function solution(n){
+                if(n===0){
+                    return;
+                } else {
+                    solution(n-1);
+                    console.log(n);
+                }   
+            }
+
+            solution(3);
+        </script>
+    </body>
+</html>
+
+<!-- 재귀함수
+어떤 함수에서 자신을 다시 반복 호출하여 작업을 수행하는 방식의 함수
+-->
