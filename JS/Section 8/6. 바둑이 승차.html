@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 바둑이 승차
+            function solution(c, arr){
+                let stack = [];
+                let sort = arr.sort((a,b) => b-a);
+                // console.log(sort);
+                function DFS(v, sum){
+                    if(sum>c){
+                        // stack.push(sum)
+                        return;
+                    }else{
+                        console.log(v, sum, stack)
+                        stack.push(sum);
+                        DFS(v+1, sum+arr[v]);
+                    }
+                }
+                DFS(0, 0);
+                return stack.pop();
+            }
+
+            let arr=[81, 58, 42, 33, 61];
+            console.log(solution(259, arr));
+        </script>
+    </body>
+</html>
+
+<!-- 내 풀이
+처음에 내림차순으로 정렬을 하고 제공된 최대값보다 크면 리턴
+그렇지 않으면 원소 하나씩 더하기ㅋㅋㅋ
+
+그리고 이 값들을 stack에 넣고 출력하는건 마지막 값만 출력
+-->
