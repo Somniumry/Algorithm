@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 부분집합
+            function solution(n){
+                let stack =[];
+                let check = Array.from({length: n+1}, () => 0);
+
+                function DFS(depth){
+                    if(depth === check.length){
+                        for(let i=1; i<depth; i++){
+                            if(check[i] === 1){ // 방문한 것만 stack에 넣기
+                                stack.push(i)
+                            }
+                        }
+                    } else {
+                        check[depth] = 1; // 방문 O
+                        DFS(depth+1);
+                        check[depth] = 0; // 방문 X
+                        DFS(depth+1); // return 조건이 depth가 check.length랑 같아야 하니까 depth를 +1 해서 if문으로 갈 수 있게
+                    }
+                }
+                DFS(1);
+                return stack;
+            }
+            
+            console.log(solution(3));
+            
+        </script>
+    </body>
+</html>
+
+<!-- 
+    부분집합 = 2^n
+    부분집합을 구하는 방법
+    원소의 개수를 0부터 하나씩 늘려가며 구한다.
+
+    공집합 : {}
+    원소 개수 하나 : {1}, {2}, {3}
+    원소 개수 두개 : {1, 2}, {1, 3}, {2, 3}
+    원소 개수 세개 : {1, 2, 3}
+-->
