@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 재귀함수
+            // 1부터 N까지 출력
+            function solution(n){
+                if(n===0) return;
+                else{
+                    solution(n-1);
+                    console.log(n)
+                }
+
+            }
+
+            solution(3);
+        </script>
+    </body>
+</html>
