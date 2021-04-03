@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 이진트리 순회
+            function solution(n){
+                let answer = '';
+                function DFS(v){
+                    if(v>7) return;
+                    else {
+                        console.log(v);
+                        DFS(v*2);
+                        DFS(v*2+1)
+                    }
+                }
+                DFS(n);
+                return
+            }
+
+            console.log(solution(1));
+        </script>
+    </body>
+</html>
+
+<!-- v 값
+1 -> 2 -> 4 -> 8 -> 9 -> 5 -> 10 -> 11 -> 3 -> 6 -> 12 -> 13 -> 7
+-->
