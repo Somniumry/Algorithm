@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 부분집합 구하기(DFS)
+            // 1부터 N까지 부분집합 모두 출력
+            function solution(n){
+                let check = Array.from({length: n+1}, () => 0);
+                // console.log(check)
+                let stack = [];
+                function DFS(v){
+                    if(v===check.length){ // 4일때 출력한다.
+                        let answer = '';
+                        for(let i=1; i<=v; i++){
+                            if(check[i] === 1){
+                                answer += i;
+                            }
+                        }
+                        if(answer.length > 0) stack.push(answer)
+                    } else {
+                        check[v]=1;
+                        DFS(v+1);
+                        check[v]=0;
+                        DFS(v+1);
+                    }
+                }
+                DFS(1);
+                return stack;
+            }
+
+            console.log(solution(3));
+        </script>
+    </body>
+</html>
