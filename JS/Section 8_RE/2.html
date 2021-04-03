@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        // 재귀함수 이진수 출력
+
+        function solution(n) {
+            let res = '';
+            function DFS(v) {
+                if (v === 0) return;
+                else {
+                    DFS(parseInt(v / 2));
+                    res += v % 2
+                }
+            }
+            DFS(n);
+            return res
+        }
+
+        console.log(solution(11));
+    </script>
+</body>
+
+</html>
