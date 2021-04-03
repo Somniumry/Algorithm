@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 최대점수 구하기
+            function solution(m, ps, pt){
+                let stack = [];
+                let res;
+                function DFS(depth, score, time){
+                    if(time > m) return
+                    if(depth === ps.length+1){
+                        res = Math.max(...stack)
+                    } else {
+                        stack.push(score, time)
+                        DFS(depth+1, score+ps[depth], time+pt[depth])
+                        DFS(depth+1, score, time)
+                    }
+                }
+                DFS(0, 0, 0)
+                return res
+            }
+            let ps=[10, 25, 15, 6, 7];
+            let pt=[5, 12, 8, 3, 4]
+            console.log(solution(20, ps, pt));
+        </script>
+    </body>
+</html>
