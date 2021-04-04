@@ -8,7 +8,7 @@
             // 부분집합 구하기(DFS)
             // 1부터 N까지 부분집합 모두 출력
             function solution(n){
-                let check = Array.from({length: n+1}, () => 0);
+                let check = Array.from({length: n+1}, () => 0); // 3까지 적용해야하니까 n+1이여야 한다.
                 // console.log(check)
                 let stack = [];
                 function DFS(v){
