@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 동전교환
+            function solution(m, arr){
+                let min = Number.MAX_SAFE_INTEGER;
+                let stack = [];
+                function DFS(depth, sum){
+                    if(depth > min) return // depth 조건 설정 안해주면 Call Stack 발생
+                    if(sum === m) {
+                        min = Math.min(min, depth);
+                    } else {
+                        for(let i=0; i<arr.length; i++){
+                            DFS(depth+1, sum+arr[i])
+                        }
+                    }
+                }
+                DFS(0, 0);
+                return min
+            }
+
+            let arr=[1, 2, 5];
+            console.log(solution(15, arr));
+        </script>
+    </body>
+</html>
+
+<!-- 
+    => depth 조건 설정 안해주면 call stack 발생함 
+    아마 depth 조건없이 계속 돌아가니까 문제 생기는거 같음
+-->
