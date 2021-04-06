@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 수들의 조합
+            // N개의 숫자 중 K개 뽑는 조합의 합이 M배수인 개수
+            function solution(n, k, arr, m){         
+                let check = Array.from({length: k}, ()=>0);
+                let stack = [];
+                let cnt=0;
+                function DFS(depth, s, sum){
+                    if(depth === k){
+                        // stack.push(check.slice());
+                        // console.log(sum)
+                        if(sum%6===0) cnt++;
+                    } else {
+                        for(let i=s; i<n; i++){
+                            check[depth] = arr[i];
+                            DFS(depth+1, i+1, sum+arr[i])
+                        }
+                    }
+                }
+                DFS(0,0,0);
+                // return stack;
+                return cnt;
+            }
+
+            let arr=[2, 4, 5, 8, 12];
+            console.log(solution(5, 3, arr, 6));
+        </script>
+    </body>
+</html>
+
