@@ -32,3 +32,28 @@
 </html>
 
 <!-- 여긴 DFS for문을 어떻게 쓰는지 잘 알아둘것 -->
+
+<!-- 리턴값
+[1, 1]
+[1, 2]
+[1, 3]
+[2, 1]
+[2, 2]
+[2, 3]
+[3, 1]
+[3, 2]
+[3, 3]
+-->
+
+<!-- 풀이방식
+D(0)
+check[depth] = i => check[0] = 1 => 0, 1
+DFS(depth+1) => depth = 1
+
+check[depth] = i => check[1] = 1 => 1, 1
+DFS(depth+1) => length가 2로 같아서 stack에 넣는다 [1, 1]
+
+check[depth] = i => check[1] = 2 => 1, 2
+DFS(depth+1) => length가 2로 같아서 stack에 넣는다 [1, 2]
+
+-->
