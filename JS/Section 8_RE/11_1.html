@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 팩토리얼
+            // 5*4*3*2*1 = 120
+            function solution(n){
+                let answer = 1;
+                if(n===1){
+                    return 1;
+                } else {
+                    console.log(n)
+                    return n*solution(n-1);
+                }
+            }
+
+            console.log(solution(5));
+        </script>
+    </body>
+</html>
+
+<!-- 풀이
+1. n === 5 -> else -> 5*4
+2. n === 4 -> else ->20 * 4
+-->
