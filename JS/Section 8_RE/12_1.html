@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        // 메모이제이션
+        // n-1 C r-1 + n-1 C r
+        function solution(n, r) {
+            let answer;
+            function DFS(n, r) {
+                if (r === 0) return 1;
+                if (n === r) return 1;
+                else {
+                    return DFS(n - 1, r - 1) + DFS(n - 1, r)
+                }
+            }
+            answer = DFS(n, r);
+            return answer
+        }
+
+        console.log(solution(5, 3));
+    </script>
+</body>
+
+</html>
+
+<!-- 메모이제이션 안했을 때, 그냥 DFS만 했을 때 -->
